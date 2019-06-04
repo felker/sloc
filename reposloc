@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 
 use strict;
 use warnings;
@@ -241,9 +241,12 @@ unless ($opts{noplot}) {
 	my $gp;
 	open $gp, "| gnuplot" or die $!;
 	$gp->autoflush(1);
-	my $outfile = catfile($calldir, 'output.svg');
+	#	my $outfile = catfile($calldir, 'output.png');
+	my $outfile = catfile($calldir, 'output.pdf');	
 	print $gp <<END;
-set terminal svg size 800, 580 dynamic enhanced background "#FFFFFF"
+# set terminal svg size 800, 580 dynamic enhanced background "#FFFFFF"
+# The default size for PDF output is 5 inches by 3 inches. The size option changes this to whatever the user requests.
+set terminal pdf size 10, 6 enhanced background "#FFFFFF"	    
 set output '$outfile'
 set xdata time
 set timefmt "%s"

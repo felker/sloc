@@ -1,3 +1,93 @@
 take into account forks
 add -from option (which will also be useful for incremental updates)
 some operations need a timeout
+
+
+Kyle additions:
+perl -MCPAN -e shell
+
+install Switch
+install DateTime
+install Term:ReadLine:GNU
+
+
+curl -L https://install.perlbrew.pl | bash
+: 1559600579:0;perlbrew install perl-5.16.2\
+: 1559601593:0;perlbrew switch perl-5.16.2\
+
+
+(base) K-MBP% which perl
+/Users/kfelker/perl5/perlbrew/perls/perl-5.16.2/bin/perl
+
+
+https://stackoverflow.com/questions/4916492/git-describe-fails-with-fatal-no-names-found-cannot-describe-anything
+
+./gen-man.sh
+>
+fatal: No names found, cannot describe anything.
+
+index fd7afef..a50603a 100755
+--- a/gen-man.sh
++++ b/gen-man.sh
+@@ -1,2 +1,2 @@
+ #!/bin/sh
+-pod2man -c "" -r "`git describe`" reposloc > reposloc.1
++pod2man -c "" -r "`git describe --always`" reposloc > reposloc.1
+
+--always
+Show uniquely abbreviated commit object as fallback.
+
+
+
+
+
+
+/usr/local/opt/coreutils/libexec/gnuman/man1
+echo $MANPATH
+: 1559598946:0;export MANPATH=$MANPATH:/Users/kfelker/go/src/github.com/bytbox/sloc
+: 1559598948:3;man pod2man
+: 1559598957:0;man resloc
+: 1559598967:0;echo $MANPATH
+: 1559599013:0;manpath
+: 1559599053:0;mandb
+: 1559599079:3;updatedb
+: 1559599085:2;man updatedb
+: 1559599102:0;man -u
+: 1559599115:6;sudo /usr/libexec/makewhatis\
+
+
+
+(base) K-MBP% which perl
+/usr/local/bin/perl
+(base) K-MBP% perl --version
+
+This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-thread-multi-2level
+
+(base) K-MBP% ~/go/src/github.com/bytbox/sloc/reposloc
+String found where operator expected at /Users/kfelker/go/src/github.com/bytbox/sloc/reposloc line 301, near "vcs_error "git clone failed""
+	(Do you need to predeclare vcs_error?)
+String found where operator expected at /Users/kfelker/go/src/github.com/bytbox/sloc/reposloc line 308, near "vcs_error "mercurial clone failed""
+	(Do you need to predeclare vcs_error?)
+Experimental keys on scalar is now forbidden at /Users/kfelker/go/src/github.com/bytbox/sloc/reposloc line 52.
+Type of arg 1 to keys must be hash or array (not anonymous hash ({})) at /Users/kfelker/go/src/github.com/bytbox/sloc/reposloc line 52, near "};"
+Experimental keys on scalar is now forbidden at /Users/kfelker/go/src/github.com/bytbox/sloc/reposloc line 130.
+Type of arg 1 to keys must be hash or array (not private variable) at /Users/kfelker/go/src/github.com/bytbox/sloc/reposloc line 130, near "$result) "
+Experimental keys on scalar is now forbidden at /Users/kfelker/go/src/github.com/bytbox/sloc/reposloc line 170.
+Type of arg 1 to keys must be hash or array (not hash element) at /Users/kfelker/go/src/github.com/bytbox/sloc/reposloc line 170, near "};"
+Experimental keys on scalar is now forbidden at /Users/kfelker/go/src/github.com/bytbox/sloc/reposloc line 227.
+Type of arg 1 to keys must be hash or array (not private variable) at /Users/kfelker/go/src/github.com/bytbox/sloc/reposloc line 227, near "$d) "
+syntax error at /Users/kfelker/go/src/github.com/bytbox/sloc/reposloc line 301, near "vcs_error "git clone failed""
+syntax error at /Users/kfelker/go/src/github.com/bytbox/sloc/reposloc line 308, near "vcs_error "mercurial clone failed""
+/Users/kfelker/go/src/github.com/bytbox/sloc/reposloc has too many errors.
+(base) K-MBP% ~/go/src/github.com/bytbox/sloc/reposloc
+Global symbol "$repos" requires explicit package name (did you forget to declare "my $repos"?) at /Users/kfelker/go/src/github.com/bytbox/sloc/reposloc line 53.
+Global symbol "$repos" requires explicit package name (did you forget to declare "my $repos"?) at /Users/kfelker/go/src/github.com/bytbox/sloc/reposloc line 53.
+Experimental keys on scalar is now forbidden at /Users/kfelker/go/src/github.com/bytbox/sloc/reposloc line 53.
+Type of arg 1 to keys must be hash or array (not anonymous hash ({})) at /Users/kfelker/go/src/github.com/bytbox/sloc/reposloc line 53, near "};"
+Experimental keys on scalar is now forbidden at /Users/kfelker/go/src/github.com/bytbox/sloc/reposloc line 131.
+Type of arg 1 to keys must be hash or array (not private variable) at /Users/kfelker/go/src/github.com/bytbox/sloc/reposloc line 131, near "$result) "
+Experimental keys on scalar is now forbidden at /Users/kfelker/go/src/github.com/bytbox/sloc/reposloc line 171.
+Type of arg 1 to keys must be hash or array (not hash element) at /Users/kfelker/go/src/github.com/bytbox/sloc/reposloc line 171, near "};"
+Experimental keys on scalar is now forbidden at /Users/kfelker/go/src/github.com/bytbox/sloc/reposloc line 228.
+Type of arg 1 to keys must be hash or array (not private variable) at /Users/kfelker/go/src/github.com/bytbox/sloc/reposloc line 228, near "$d) "
+/Users/kfelker/go/src/github.com/bytbox/sloc/reposloc has too many errors.
